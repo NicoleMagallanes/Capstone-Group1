@@ -51,7 +51,7 @@ class UserController extends Controller
         $validatedData = $request->validate($request->rules());
 
         $user = new User();
-        /*
+   
         $user->name = $validatedData['name'];
         $user->email = $validatedData['email'];
 
@@ -62,7 +62,7 @@ class UserController extends Controller
         }
 
         $user->save();
-        */
+
 
         $user = $this->doSaveRecord($user, $validatedData);
 

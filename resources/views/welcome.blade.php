@@ -134,7 +134,6 @@
         [type=submit],
         button {
             -webkit-appearance: button;
-            background-color: transparent;
             background-image: none
         }
 
@@ -738,10 +737,6 @@
                 color: rgb(156 163 175 / var(--tw-text-opacity))
             }
 
-            .dark\:text-white {
-                --tw-text-opacity: 1;
-                color: rgb(255 255 255 / var(--tw-text-opacity))
-            }
 
             .dark\:shadow-none {
                 --tw-shadow: 0 0 #0000;
@@ -920,33 +915,124 @@
                     <!-- Second dropdown menu -->
                     <ul class="absolute left-auto right-0 z-[1000] float-left m-0 mt-1 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-clip-padding text-left text-base shadow-lg dark:bg-neutral-700 [&[data-te-dropdown-show]]:block" aria-labelledby="dropdownMenuButton2" data-te-dropdown-menu-ref>
                         <!-- Second dropdown menu items -->
-                        
-                            <a class="block w-full bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30" href="#" data-te-dropdown-item-ref>
-                                    @if (Route::has('login'))
-                                    <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
-                                        @auth
-                                        <a href="{{ url('/dashboard') }}" class="font-semibold text-gray-900 hover:text-gray-600  focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
-                                        @else
-                                        <a href="{{ route('login') }}" class="font-semibold text-gray-900 hover:text-gray-600  focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
 
-                                        @if (Route::has('register'))
-                                        <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-900 hover:text-gray-600  focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
-                                        @endif
-                                        @endauth
-                                    </div>
-                                    @endif
-                                    </
-                                
-                            </a>
-                        
+                        <a class="block w-full bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30" href="#" data-te-dropdown-item-ref>
+                            @if (Route::has('login'))
+                            <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
+                                @auth
+                                <a href="{{ url('/dashboard') }}" class="font-semibold text-gray-900 hover:text-gray-600  focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
+                                @else
+                                <a href="{{ route('login') }}" class="font-semibold text-gray-900 hover:text-gray-600  focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
+
+                                @if (Route::has('register'))
+                                <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-900 hover:text-gray-600  focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
+                                @endif
+                                @endauth
+                            </div>
+                            @endif
+                            </ </a>
+
                     </ul>
                 </div>
             </div>
         </div>
     </nav>
 
+    <!-- Button trigger modal -->
+    <div class="flex items-center justify-center">
+        <div class="bg-slate-200 shadow-[0_4px_9px_-4px_#3b71ca] flex">
+            <button type="button" class="p-4 rounded bg-slate-200 text-black shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out" data-te-toggle="modal" data-te-target="#exampleModal" data-te-ripple-init data-te-ripple-color="light">
+                Launch demo modal
+            </button>
+            <button type="button" class="p-4 rounded bg-slate-200 text-black shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out" data-te-toggle="modal" data-te-target="#exampleModal2" data-te-ripple-init data-te-ripple-color="light">
+                Launch demo modal
+            </button>
+            <button type="button" class="p-4 rounded bg-slate-200 text-black shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out" data-te-toggle="modal" data-te-target="#exampleModal3" data-te-ripple-init data-te-ripple-color="light">
+                Launch demo modal
+            </button>
+        </div>
+    </div>
 
 
+    <!-- Modal -->
+    <div data-te-modal-init class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div data-te-modal-dialog-ref class="pointer-events-none relative w-auto translate-y-[-50px] opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:max-w-[500px]">
+            <div class="min-[576px]:shadow-[0_0.5rem_1rem_rgba(#000, 0.15)] pointer-events-auto relative flex w-full flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-lg outline-none dark:bg-neutral-600">
+                <div class="flex flex-shrink-0 items-center justify-between rounded-t-md border-b-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
+                    <!--Modal title-->
+                    <h5 class="text-xl font-medium leading-normal text-neutral-800 dark:text-neutral-200" id="exampleModalLabel">
+                        Modal title
+                    </h5>
+                    <!--Close button-->
+                    <button type="button" class="box-content bg-slate-200 rounded-none border-none hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none" data-te-modal-dismiss aria-label="Close">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!--Modal body-->
+                <div class="relative flex-auto p-4" data-te-modal-body-ref>
+                    <div class="justify-center items-center text-center">
+                        <iframe width="325" height="280" frameborder="0" src="https://www.bing.com/maps/embed?h=280&w=325&cp=14.533073943499119~121.06658935546875&lvl=11&typ=d&sty=r&src=SHELL&FORM=MBEDV8" scrolling="no">
+                        </iframe>
+                        <div style="white-space: nowrap; text-align: center; width: 325px; padding: 6px 0;">
+                            <a id="largeMapLink" target="_blank" href="https://www.bing.com/maps?cp=14.533073943499119~121.06658935546875&amp;sty=r&amp;lvl=11&amp;FORM=MBEDLD">View Larger Map</a> &nbsp; | &nbsp;
+                            <a id="dirMapLink" target="_blank" href="https://www.bing.com/maps/directions?cp=14.533073943499119~121.06658935546875&amp;sty=r&amp;lvl=11&amp;rtp=~pos.14.533073943499119_121.06658935546875____&amp;FORM=MBEDLD">Get Directions</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Modal footer-->
+                <div class="flex flex-shrink-0 flex-wrap items-center justify-end rounded-b-md border-t-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
+                    <button type="button" class="inline-block rounded bg-primary-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200" data-te-modal-dismiss data-te-ripple-init data-te-ripple-color="light">
+                        Close
+                    </button>
+                    <button type="button" class="ml-1 inline-block rounded bg-slate-200 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-black shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]" data-te-ripple-init data-te-ripple-color="light">
+                        Save changes
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div data-te-modal-init class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div data-te-modal-dialog-ref class="pointer-events-none relative w-auto translate-y-[-50px] opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:max-w-[500px]">
+            <div class="min-[576px]:shadow-[0_0.5rem_1rem_rgba(#000, 0.15)] pointer-events-auto relative flex w-full flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-lg outline-none dark:bg-neutral-600">
+                <div class="flex flex-shrink-0 items-center justify-between rounded-t-md border-b-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
+                    <!--Modal title-->
+                    <h5 class="text-xl font-medium leading-normal text-neutral-800 dark:text-neutral-200" id="exampleModalLabel">
+                        Modal title
+                    </h5>
+                    <!--Close button-->
+                    <button type="button" class="box-content bg-slate-200 rounded-none border-none hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none" data-te-modal-dismiss aria-label="Close">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!--Modal body-->
+                <div class="relative flex-auto p-4" data-te-modal-body-ref>
+                    <div class="relative mb-3" id="datepicker-disable-past" data-te-input-wrapper-init>
+                        <input type="text" class="peer block min-h-[auto] w-full rounded border-0 px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none " placeholder="Select a date" />
+                        <label for="floatingInput" class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none">Select a date</label>
+                    </div>
+                </div>
+
+                <!--Modal footer-->
+                <div class="flex flex-shrink-0 flex-wrap items-center justify-end rounded-b-md border-t-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
+                    <button type="button" class="inline-block rounded bg-primary-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200" data-te-modal-dismiss data-te-ripple-init data-te-ripple-color="light">
+                        Close
+                    </button>
+                    <button type="button" class="ml-1 inline-block rounded bg-slate-200 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-black shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]" data-te-ripple-init data-te-ripple-color="light">
+                        Save changes
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero -->
     <div class="relative sm:flex sm:justify-center p-10 sm:items-center min-h-screen bg-center bg-gray-100  selection:bg-red-500 selection:text-white">
         <div class="container mx-auto xl:px-32">
             <div class="grid lg:grid-cols-2 gap-12 flex items-center">
@@ -962,7 +1048,7 @@
             </div>
         </div>
     </div>
-    </div>
+
     <div class="container my-24 mx-auto md:px-6 bg-gray-100">
         <section class="mb-32 text-center">
             <h2 class="mb-12 text-3xl font-bold">Testimonials</h2>

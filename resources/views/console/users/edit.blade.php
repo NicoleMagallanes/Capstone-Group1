@@ -51,10 +51,10 @@
                             </div>
                         </div>
                     </form>
-
+<!--fix this later --->
                     <div class="flex items-center gap-4 mt-[15px]">
                         <x-primary-button onclick="doCancel()">{{ __('Cancel') }}</x-primary-button>
-                        <x-primary-button form="record-data">{{ __('Save') }}</x-primary-button>                        
+                        <x-primary-button onclick="doSaveRecord()">{{ __('Save') }}</x-primary-button>                        
                     </div>
                 </div>
             </div>
@@ -66,6 +66,9 @@
         window.location.href=`/manage/users`;
     }
 
+    const doSaveRecord = () =>{
+        window.location.href=`/manage/users`;
+    }
     const validatePassword = () =>{
 
         const formData = new FormData(document.querySelector('#record-data'));
