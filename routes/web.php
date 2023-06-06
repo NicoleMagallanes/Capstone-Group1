@@ -7,7 +7,7 @@ use App\Http\Controllers\UserInformationController;
 use App\Http\Controllers\OptionController;
 use App\Http\Controllers\OptionGroupController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\UnsplashController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,6 +42,7 @@ Route::middleware(['auth','gatekeeper'])->group(function () {
     Route::resource('/options', OptionController::class);
     Route::resource('/option-groups', OptionGroupController::class);
     Route::resource('/articles', ArticleController::class);
+    Route::get('/random-photo', [UnsplashController::class, 'getRandomPhoto']);
 
     Route::get('/options-with-groups', [OptionController::class, 'getOptionWithGroups'])->name('options.with.groups');
 });

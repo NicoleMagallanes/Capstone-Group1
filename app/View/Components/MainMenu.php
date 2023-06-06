@@ -26,6 +26,7 @@ class MainMenu extends Component
 
         if(Auth::user()){
             $consoleMenus = Auth::user()->mainMenuList;
+            info($consoleMenus);
             $view->with('consoleMenus', $consoleMenus);
         }
         

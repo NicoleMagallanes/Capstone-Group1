@@ -8,6 +8,8 @@ use App\Http\Requests\UpdateArticleRequest;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Http;
+use Illuminate\View\View;
 
 class ArticleController extends Controller
 {
@@ -29,7 +31,16 @@ class ArticleController extends Controller
 
         $articleList = $articleList->paginate(config('constants.RECORD_PER_PAGE'));
 
-        return view('console/articles/index', compact('articleList'));
+        // Fetch random photos from Unsplash API
+        $response = Http::get('https://api.unsplash.com/photos/random', [
+            'count' => $articleList->count(), // Number of random photos to fetch, same as the number of articles
+            'client_id' => 'NDFwFidV0oPEUM7Kw5mjCRZ-rU9Pw4hlsRc50dQyies', // Replace with your actual Unsplash Access Key
+            'query' => 'hotel',
+        ]);
+
+        $photos = $response->json();
+
+        return view('console/articles/index', compact('articleList', 'photos'));
     }
 
     /**
@@ -45,7 +56,17 @@ class ArticleController extends Controller
      */
     public function store(StoreArticleRequest $request) : RedirectResponse
     {
-        //
+          // Retrieve the validated data from the request
+    $validatedData = $request->validated();
+
+    // Create a new Article instance with the validated data
+    $article = new Article($validatedData);
+
+    // Save the article
+    $article->save();
+
+    // Redirect to the appropriate page (modify the route as per your requirements)
+    return redirect()->route('articles.index')->with('status', 'Article has been created successfully.');
     }
 
     /**
@@ -59,7 +80,7 @@ class ArticleController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Article $article) : RedirectResponse
+    public function edit(Article $article)
     {
         $error = [];
 
@@ -90,7 +111,7 @@ class ArticleController extends Controller
         if($article->canDeleteRecord('articles.index')){
             $article->delete();
 
-            return Redirect::route('articles.index')->with('status','Record has been deleted.'); 
+            return Redirect::route('articles.index')->with('status','Record has been deleted.');
         }
 
         abort(401);
