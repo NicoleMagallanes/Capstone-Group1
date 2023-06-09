@@ -930,7 +930,9 @@
                                 @endauth
                             </div>
                             @endif
-                            </ </a>
+                            </
+
+                        </a>
 
                     </ul>
                 </div>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ImageUploadController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
@@ -43,6 +44,9 @@ Route::middleware(['auth','gatekeeper'])->group(function () {
     Route::resource('/option-groups', OptionGroupController::class);
     Route::resource('/articles', ArticleController::class);
     Route::get('/random-photo', [UnsplashController::class, 'getRandomPhoto']);
+    Route::get('image/upload', [ImageUploadController::class, 'fileCreate'])->name('uploadimage');
+    Route::post('image/upload/store', [ImageUploadController::class, 'fileStore']);
+    Route::post('image/delete', [ImageUploadController::class, 'fileDestroy']);
 
     Route::get('/options-with-groups', [OptionController::class, 'getOptionWithGroups'])->name('options.with.groups');
 });
