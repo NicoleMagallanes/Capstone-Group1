@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
         }
 
         \App\Models\User::factory(100)->create();
-
+        \App\Models\HomeListing::factory(20)->create();
         $this->call([
             UserInformationSeeder::class,
             OptionGroupSeeder::class,
@@ -32,6 +32,7 @@ class DatabaseSeeder extends Seeder
             UserRoleSeeder::class,
             ModuleRightSeeder::class,
             ArticleSeeder::class,
+            HomeListingSeeder::class,
         ]);
     }
 }

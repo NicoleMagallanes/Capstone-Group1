@@ -29,6 +29,8 @@ class ModuleSeeder extends Seeder
             ['name'=>'Option Groups', 'route'=>'option-groups.index', 'parent_module_id'=>2],
             ['name'=>'Articles', 'route'=>'articles.index', 'parent_module_id'=>2],
             ['name'=>'Upload Image', 'route'=>'uploadimage', 'parent_module_id'=>2],
+            ['name'=>'Home Listing', 'route'=>'home-listing.index', 'parent_module_id'=>2],
+
         ];
 
         foreach($consoleMenus as $menu){
