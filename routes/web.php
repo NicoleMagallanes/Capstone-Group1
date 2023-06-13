@@ -49,7 +49,10 @@ Route::middleware(['auth', 'gatekeeper'])->group(function () {
     Route::post('image/upload/store', [ImageUploadController::class, 'fileStore']);
     Route::post('image/delete', [ImageUploadController::class, 'fileDestroy']);
     Route::get('/home-listing', [HomeListingController::class, 'index'])->name('home-listing.index');
-    Route::post('/home-listing/create', [HomeListingController::class, 'create'])->name('home-listing.create');
+    Route::get('/home-listing/create', [HomeListingController::class, 'create'])->name('home-listing.create');
+    Route::delete('/home-listing/{id}', [HomeListingController::class, 'destroy'])->name('home-listing.destroy');
+    Route::get('/home-listing/{id}/edit', [HomeListingController::class, 'edit'])->name('home-listing.edit');
+    Route::post('/home-listing', [HomeListingController::class, 'store'])->name('home-listing.store');
     
     Route::get('/options-with-groups', [OptionController::class, 'getOptionWithGroups'])->name('options.with.groups');
 });

@@ -6,6 +6,10 @@ use App\Models\HomeListing;
 use App\Http\Requests\StoreHomeListingRequest;
 use App\Http\Requests\UpdateHomeListingRequest;
 use Illuminate\Support\Facades\Http;
+use App\Http\Controllers\Redirect;
+use App\Http\Controllers\Request;
+use App\Http\Controllers\ModelsImageUpload;
+use App\Http\Controllers\Auth;
 
 class HomeListingController extends Controller
 {
@@ -41,7 +45,17 @@ class HomeListingController extends Controller
      */
     public function store(StoreHomeListingRequest $request)
     {
-        //
+        // Retrieve the validated data from the request
+        $validatedData = $request->validated();
+
+        // Create a new Article instance with the validated data
+        $homeListing = new HomeListing($validatedData);
+
+        // Save the article
+        $homeListing->save();
+
+        // Redirect to the appropriate page (modify the route as per your requirements)
+        return redirect()->route('home-listing.index')->with('status', 'Home Listing has been created successfully.');
     }
 
     /**
@@ -57,7 +71,13 @@ class HomeListingController extends Controller
      */
     public function edit(HomeListing $homeListing)
     {
-        //
+        $error = [];
+
+        if ($homeListing->canEditRecord('home-listing.index')) {
+            return view('console/home-listing/edit', compact('error', 'homeListing'));
+        }
+
+        abort(401);
     }
 
     /**
@@ -65,7 +85,11 @@ class HomeListingController extends Controller
      */
     public function update(UpdateHomeListingRequest $request, HomeListing $homeListing)
     {
-        //
+        if ($homeListing->canEditRecord('home-listing.index')) {
+            //
+        }
+
+        abort(401);
     }
 
     /**
@@ -73,6 +97,38 @@ class HomeListingController extends Controller
      */
     public function destroy(HomeListing $homeListing)
     {
-        //
+        if ($homeListing->canDeleteRecord('home-listing.index')) {
+            $homeListing->delete();
+
+            return Redirect::route('home-listing.index')->with('status', 'Record has been deleted.');
+        }
+
+        abort(401);
+    }
+    public function fileCreate()
+    {
+        return view('imageupload');
+    }
+    public function fileStore(Request $request)
+    {
+        $image = $request->file('file');
+        $imageName = $image->getClientOriginalName();
+        $image->move(public_path('images'),$imageName);
+        
+        $imageUpload = new ModelsImageUpload();
+        $imageUpload->filename = $imageName;
+        $imageUpload->created_by = Auth::user()->id;
+        $imageUpload->save();
+        return response()->json(['success'=>$imageName]);
+    }
+    public function fileDestroy(Request $request)
+    {
+        $filename =  $request->get('filename');
+        ModelsImageUpload::where('filename',$filename)->delete();
+        $path=public_path().'/images/'.$filename;
+        if (file_exists($path)) {
+            unlink($path);
+        }
+        return $filename;  
     }
 }
