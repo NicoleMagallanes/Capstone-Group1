@@ -27,13 +27,13 @@
                         </div>
                     </div>
 
-                    @if (!empty($photos))
+
                     <div class="grid gap-6 lg:grid-cols-3 xl:gap-x-12">
                         @foreach($homeListing as $index => $item)
 
-                        @if (array_key_exists($index, $photos))
+
                         <div class="mb-6 overflow-hidden rounded-lg bg-cover bg-no-repeat shadow-lg dark:shadow-black/20" data-te-ripple-init data-te-ripple-color="light">
-                            <img src="{{ $photos[$index]['urls']['regular'] }}" class="w-full h-48 object-cover" alt="{{ $item->title }}" />
+                            <img src="{{ $item->getPhotoUrl($photos, $index) }}" class="w-full h-48 object-cover" alt="{{ $item->title }}" />
                             <a href="#!"></a>
 
                             <div class="p-6">
@@ -66,16 +66,16 @@
 
                                     @endif
                                     @if($item->canReserve('home-listing.index'))
-                                    <x-primary-button onclick="gotoReserve({{$item->id}}, '{{$item->title}}', '{{$item->description}}', {{$item->price}}, '{{$item->publishedDate}}', '{{$photos[$index]['urls']['regular']}}')">{{ __('Reserve')}}</x-primary-button>
+                                    <x-primary-button onclick="gotoReserve({{$item->id}}, '{{$item->title}}', '{{$item->description}}', {{$item->price}}, '{{$item->publishedDate}}', '{{$item->getPhotoUrl($photos, $index)}}')">{{ __('Reserve')}}</x-primary-button>
 
                                     @endif
                                 </div>
                             </div>
                         </div>
-                        @endif
+
                         @endforeach
                     </div>
-                    @endif
+
 
                     <x-pagination :resultList="$homeListing" />
                 </div>
