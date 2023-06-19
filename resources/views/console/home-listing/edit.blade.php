@@ -1,7 +1,7 @@
 <x-app-layout>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/min/dropzone.min.css">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-     
+
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Manage items') }}
@@ -44,13 +44,13 @@
 
 
                         </div>
-                        <div class="container">
-                            <form method="post" action="{{url('image/upload/store')}}" enctype="multipart/form-data" class="dropzone" id="dropzone">
-                                @csrf
-                            </form>
-                        </div>
-                    </form>
 
+                    </form>
+                    <div class="container gap-4 pt-4">
+                        <form method="post" action="{{url('image/upload/store')}}" enctype="multipart/form-data" class="dropzone" id="dropzone">
+                            @csrf
+                        </form>
+                    </div>
                     <div class="flex items-center gap-4 mt-[15px]">
                         <x-primary-button onclick="doCancel()">{{ __('Cancel') }}</x-primary-button>
                         <x-primary-button form="record-data">{{ __('Save') }}</x-primary-button>

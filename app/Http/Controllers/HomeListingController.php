@@ -63,7 +63,7 @@ class HomeListingController extends Controller
      */
     public function show(HomeListing $homeListing)
     {
-        //
+        return $this->reserve($homeListing);
     }
 
     /**
@@ -72,7 +72,7 @@ class HomeListingController extends Controller
     public function edit(HomeListing $homeListing)
     {
         $error = [];
-
+        info($homeListing);
         if ($homeListing->canEditRecord('home-listing.index')) {
             return view('console/home-listing/edit', compact('error', 'homeListing'));
         }
@@ -113,22 +113,33 @@ class HomeListingController extends Controller
     {
         $image = $request->file('file');
         $imageName = $image->getClientOriginalName();
-        $image->move(public_path('images'),$imageName);
-        
+        $image->move(public_path('images'), $imageName);
+
         $imageUpload = new ModelsImageUpload();
         $imageUpload->filename = $imageName;
         $imageUpload->created_by = Auth::user()->id;
         $imageUpload->save();
-        return response()->json(['success'=>$imageName]);
+        return response()->json(['success' => $imageName]);
     }
     public function fileDestroy(Request $request)
     {
         $filename =  $request->get('filename');
-        ModelsImageUpload::where('filename',$filename)->delete();
-        $path=public_path().'/images/'.$filename;
+        ModelsImageUpload::where('filename', $filename)->delete();
+        $path = public_path() . '/images/' . $filename;
         if (file_exists($path)) {
             unlink($path);
         }
-        return $filename;  
+        return $filename;
     }
+    public function reserve(HomeListing $homeListing)
+    {
+        $error = [];
+        info($homeListing);
+        if ($homeListing->canReserve('home-listing.index')) {
+            return view('console/home-listing/reserve', compact('error', 'homeListing'));
+        }
+
+        abort(401);
+    }
+
 }

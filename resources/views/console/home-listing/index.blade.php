@@ -6,12 +6,7 @@
     </x-slot>
 
     @if(session('status') != '')
-    <p
-        x-data="{ show: true }"
-        x-show="show"
-        x-transition
-        x-init="setTimeout(() => show = false, 3000)"
-        class="bg-emerald-200 py-[6px] px-[10px] rounded text-sm text-gray-600">{{ session('status') }}</p>
+    <p x-data="{ show: true }" x-show="show" x-transition x-init="setTimeout(() => show = false, 3000)" class="bg-emerald-200 py-[6px] px-[10px] rounded text-sm text-gray-600">{{ session('status') }}</p>
     @endif
 
     <div class="py-12">
@@ -64,13 +59,15 @@
                                 <div class="flex items-center gap-4">
                                     @if($item->canEditRecord('home-listing.index'))
                                     <x-primary-button onclick="gotoEdit({{$item->id}})">{{ __('Edit')}}</x-primary-button>
-                                    @else
-                                    <x-primary-button class="bg-[#cccccc]">{{ __('Edit')}}</x-primary-button>
+
                                     @endif
                                     @if($item->canDeleteRecord('home-listing.index'))
                                     <x-delete-restore :id="$item->id" :isDeleted="$item->isDeleted" :action="$item->isDeleted ? route('home-listing.restore',$item->id) : route('home-listing.destroy',$item->id)" deleteLabel="Archive" restoreLabel="Activate" />
-                                    @else
-                                    <x-danger-button class="bg-[#cccccc]">{{ __('Archive')}}</x-danger-button>
+
+                                    @endif
+                                    @if($item->canReserve('home-listing.index'))
+                                    <x-primary-button onclick="gotoReserve({{$item->id}}, '{{$item->title}}', '{{$item->description}}', {{$item->price}}, '{{$item->publishedDate}}', '{{$photos[$index]['urls']['regular']}}')">{{ __('Reserve')}}</x-primary-button>
+
                                     @endif
                                 </div>
                             </div>
@@ -80,7 +77,7 @@
                     </div>
                     @endif
 
-                    <x-pagination :resultList="$homeListing"/>
+                    <x-pagination :resultList="$homeListing" />
                 </div>
             </div>
         </div>
@@ -90,7 +87,17 @@
     const gotoEdit = (id) => {
         window.location.href = `/home-listing/${id}/edit`;
     }
+    const gotoReserve = (id, title, description, price, publishedDate) => {
+        const queryParams = new URLSearchParams({
+            id,
+            title,
+            description,
+            price,
+            publishedDate
+        });
 
+        window.location.href = `/home-listing/${id}/reserve?${queryParams.toString()}`;
+    }
     const gotoAdd = () => {
         window.location.href = `/home-listing/create`;
     }

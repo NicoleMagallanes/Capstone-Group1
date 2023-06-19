@@ -59,13 +59,11 @@
                                 <div class="flex items-center gap-4">
                                     @if($article->canEditRecord('articles.index'))
                                     <x-primary-button onclick="gotoEdit({{ $article->id}})">{{ __('Edit')}}</x-primary-button>
-                                    @else
-                                    <x-primary-button class="bg-[#cccccc]">{{ __('Edit')}}</x-primary-button>
+                                    
                                     @endif
                                     @if($article->canDeleteRecord('articles.index'))
                                     <x-delete-restore :id="$article->id" :isDeleted="$article->isDeleted" :action="$article->isDeleted ? route('articles.restore',$article->id) : route('articles.destroy',$article->id)" deleteLabel="Archive" restoreLabel="Activate" />
-                                    @else
-                                    <x-danger-button class="bg-[#cccccc]">{{ __('Archive')}}</x-danger-button>
+                                    
                                     @endif
                                 </div>
                             </div>

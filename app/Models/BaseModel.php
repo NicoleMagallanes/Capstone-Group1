@@ -67,7 +67,9 @@ class BaseModel extends Model
         }
         return $allowed;
     }
-
+    public function canReserve($routeName){
+        return $this->checkModuleAccess($routeName, 'index', 1);
+    }
     public function canViewAllRecords($routeName){
         return $this->checkModuleAccess($routeName, 'index', 1);
     }
