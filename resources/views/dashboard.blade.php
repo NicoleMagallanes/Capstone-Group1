@@ -7,7 +7,7 @@
 
     <body class="antialiased bg-gray-100">
         <!-- Main navigation container -->
-        <nav class="flex-no-wrap relative flex w-full items-center justify-between bg-neutral-100 py-2 shadow-md shadow-black/5 dark:bg-neutral-600 dark:shadow-black/10 lg:flex-wrap lg:justify-start lg:py-4" data-te-navbar-ref>
+        <nav class="flex-no-wrap relative flex w-full items-center justify-between bg-neutral-100 py-2  dark:bg-neutral-600 lg:flex-wrap lg:justify-start lg:py-4" data-te-navbar-ref>
             <div class="flex w-full flex-wrap items-center justify-between px-3">
                 <!-- Hamburger button for mobile view -->
                 <button class="block border-0 bg-transparent px-2 text-neutral-500 hover:no-underline hover:shadow-none focus:no-underline focus:shadow-none focus:outline-none focus:ring-0 dark:text-neutral-200 lg:hidden" type="button" data-te-collapse-init data-te-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,7 +28,7 @@
 
                 </div>
                 <div class="!visible hidden flex-grow basis-[100%] items-center justify-center lg:!flex lg:basis-auto" id="navbarSupportedContent1" data-te-collapse-item>
-                         <div class="flex items-center justify-center lg:flex-auto lg:justify-start" id="navbarSupportedContent1" data-te-collapse-item>
+                         <div class="flex items-center gap-10 justify-center lg:flex-auto lg:justify-start" id="navbarSupportedContent1" data-te-collapse-item>
 
                             <button type="button" class="p-4 rounded  bg-slate-200 text-black shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out" data-te-toggle="modal" data-te-target="#exampleModal" data-te-ripple-init data-te-ripple-color="light">
                                 Anywhere
@@ -166,7 +166,7 @@
                 <div class="grid lg:grid-cols-2 gap-12 flex items-center">
                     <div class="mt-12 lg:mt-0">
                         <h1 class="text-5xl md:text-6xl xl:text-7xl font-bold tracking-tight mb-12">The best offer <br /><span class="text-blue-600">short- and long-term homestays and experiences.</span></h1>
-                        <a class="inline-block px-7 py-3 mr-2 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out" data-mdb-ripple="true" data-mdb-ripple-color="light" href="#!" role="button">Book Now</a>
+                        <a class="inline-block px-7 py-3 mr-2 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out" data-mdb-ripple="true" data-mdb-ripple-color="light" href="{{ route('home-listing.index') }}" role="button">Book Now</a>
                         <a class="inline-block px-7 py-3 bg-transparent text-blue-600 font-medium text-sm leading-snug uppercase rounded hover:text-blue-700 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none focus:ring-0 active:bg-gray-200 transition duration-150 ease-in-out" data-mdb-ripple="true" data-mdb-ripple-color="light" href="#!" role="button">Learn more</a>
                     </div>
                     <div class="mb-12 lg:mb-0">
@@ -178,143 +178,7 @@
         <div class="w-full bg-gray-100">
             <img src="https://i.ibb.co/PQPXTx1/GREEN-3.png" class="w-full mx-auto mt-0 bg-gray-100" alt="" />
         </div>
-        <div class="container my-24 mx-auto md:px-6 bg-gray-100">
-            <section class="mb-32 text-center">
-                <h2 class="mb-12 text-3xl font-bold">Testimonials</h2>
-
-                <div class="grid gap-x-6 md:grid-cols-3 lg:gap-x-12">
-                    <div class="mb-12 md:mb-0">
-                        <div class="mb-6 flex justify-center">
-                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(1).jpg" class="w-32 rounded-full shadow-lg dark:shadow-black/20" />
-                        </div>
-                        <h5 class="mb-2 text-lg font-bold">Maria Smantha</h5>
-                        <h6 class="mb-4 font-medium text-primary dark:text-primary-400">
-                            Web Developer
-                        </h6>
-                        <p class="mb-4">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod eos
-                            id officiis hic tenetur quae quaerat ad velit ab hic.
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 96 960 960" class="inline-block w-6">
-                                <path fill="currentColor" d="M580 556h160V396H580v160Zm-360 0h160V396H220v160Zm406 220 80-160H520V336h280v288l-76 152h-98Zm-360 0 80-160H160V336h280v288l-76 152h-98Zm34-300Zm360 0Z" />
-                            </svg>
-                        </p>
-                        <ul class="mb-0 flex justify-center">
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 96 960 960" class="w-5 text-warning">
-                                    <path fill="currentColor" d="m233 976 65-281L80 506l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Z" />
-                                </svg>
-                            </li>
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 96 960 960" class="w-5 text-warning">
-                                    <path fill="currentColor" d="m233 976 65-281L80 506l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Z" />
-                                </svg>
-                            </li>
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 96 960 960" class="w-5 text-warning">
-                                    <path fill="currentColor" d="m233 976 65-281L80 506l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Z" />
-                                </svg>
-                            </li>
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 96 960 960" class="w-5 text-warning">
-                                    <path fill="currentColor" d="m233 976 65-281L80 506l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Z" />
-                                </svg>
-                            </li>
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 96 960 960" class="w-5 text-warning">
-                                    <path fill="currentColor" d="m480 757 157 95-42-178 138-120-182-16-71-168v387ZM233 976l65-281L80 506l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Z" />
-                                </svg>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="mb-12 md:mb-0">
-                        <div class="mb-6 flex justify-center">
-                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(2).jpg" class="w-32 rounded-full shadow-lg dark:shadow-black/20" />
-                        </div>
-                        <h5 class="mb-2 text-lg font-bold">Lisa Cudrow</h5>
-                        <h6 class="mb-4 font-medium text-primary dark:text-primary-400">
-                            Graphic Designer
-                        </h6>
-                        <p class="mb-4">
-                            Ut enim ad minima veniam, quis nostrum exercitationem ullam
-                            corporis suscipit laboriosam, nisi ut aliquid commodi.
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 96 960 960" class="inline-block w-6">
-                                <path fill="currentColor" d="M580 556h160V396H580v160Zm-360 0h160V396H220v160Zm406 220 80-160H520V336h280v288l-76 152h-98Zm-360 0 80-160H160V336h280v288l-76 152h-98Zm34-300Zm360 0Z" />
-                            </svg>
-                        </p>
-                        <ul class="mb-0 flex justify-center">
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 96 960 960" class="w-5 text-warning">
-                                    <path fill="currentColor" d="m233 976 65-281L80 506l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Z" />
-                                </svg>
-                            </li>
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 96 960 960" class="w-5 text-warning">
-                                    <path fill="currentColor" d="m233 976 65-281L80 506l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Z" />
-                                </svg>
-                            </li>
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 96 960 960" class="w-5 text-warning">
-                                    <path fill="currentColor" d="m233 976 65-281L80 506l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Z" />
-                                </svg>
-                            </li>
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 96 960 960" class="w-5 text-warning">
-                                    <path fill="currentColor" d="m233 976 65-281L80 506l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Z" />
-                                </svg>
-                            </li>
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 96 960 960" class="w-5 text-warning">
-                                    <path fill="currentColor" d="m233 976 65-281L80 506l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Z" />
-                                </svg>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="mb-0">
-                        <div class="mb-6 flex justify-center">
-                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(9).jpg" class="w-32 rounded-full shadow-lg dark:shadow-black/20" />
-                        </div>
-                        <h5 class="mb-2 text-lg font-bold">John Smith</h5>
-                        <h6 class="mb-4 font-medium text-primary dark:text-primary-400">
-                            Marketing Specialist
-                        </h6>
-                        <p class="mb-4">
-                            At vero eos et accusamus et iusto odio dignissimos ducimus qui
-                            blanditiis praesentium voluptatum deleniti atque corrupti.
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 96 960 960" class="inline-block w-6">
-                                <path fill="currentColor" d="M580 556h160V396H580v160Zm-360 0h160V396H220v160Zm406 220 80-160H520V336h280v288l-76 152h-98Zm-360 0 80-160H160V336h280v288l-76 152h-98Zm34-300Zm360 0Z" />
-                            </svg>
-                        </p>
-                        <ul class="mb-0 flex justify-center">
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 96 960 960" class="w-5 text-warning">
-                                    <path fill="currentColor" d="m233 976 65-281L80 506l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Z" />
-                                </svg>
-                            </li>
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 96 960 960" class="w-5 text-warning">
-                                    <path fill="currentColor" d="m233 976 65-281L80 506l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Z" />
-                                </svg>
-                            </li>
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 96 960 960" class="w-5 text-warning">
-                                    <path fill="currentColor" d="m233 976 65-281L80 506l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Z" />
-                                </svg>
-                            </li>
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 96 960 960" class="w-5 text-warning">
-                                    <path fill="currentColor" d="m233 976 65-281L80 506l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Z" />
-                                </svg>
-                            </li>
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 96 960 960" class="w-5 text-warning">
-                                    <path fill="currentColor" d="m323 851 157-94 157 95-42-178 138-120-182-16-71-168-71 167-182 16 138 120-42 178Zm-90 125 65-281L80 506l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-355Z" />
-                                </svg>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-        </div>
+      
         <!-- Footer container -->
         <footer class="bg-neutral-100 text-center text-neutral-600 dark:bg-neutral-600 dark:text-neutral-200 lg:text-left">
             <div class="flex items-center justify-center border-b-2 border-neutral-200 p-6 dark:border-neutral-500 lg:justify-between">

@@ -38,7 +38,7 @@ class BaseModel extends Model
     protected function formatDefaultDate($date){
         if($date){
             return $date->format(config('constants.DEFAULT_DATE_FORMAT'));
-        }        
+        }
         return '';
     }
 
@@ -70,6 +70,9 @@ class BaseModel extends Model
     public function canReserve($routeName){
         return $this->checkModuleAccess($routeName, 'index', 1);
     }
+    public function canPay($routeName){
+        return $this->checkModuleAccess($routeName, 'index', 1);
+    }
     public function canViewAllRecords($routeName){
         return $this->checkModuleAccess($routeName, 'index', 1);
     }
@@ -79,7 +82,7 @@ class BaseModel extends Model
     }
 
     public function scopeUserRecordsOnly($query, $routeName){
-        
+
         if(!$this->canViewAllRecords($routeName)){
             if($this->canViewOwnRecords($routeName)){
                 $query->where('created_by', Auth::user()->id);

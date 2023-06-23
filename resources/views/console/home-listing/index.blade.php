@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Manage home-listings') }}
+            {{ __('Home Listing') }}
         </h2>
     </x-slot>
 
@@ -66,7 +66,7 @@
 
                                     @endif
                                     @if($item->canReserve('home-listing.index'))
-                                    <x-primary-button onclick="gotoReserve({{$item->id}}, '{{$item->title}}', '{{$item->description}}', {{$item->price}}, '{{$item->publishedDate}}', '{{$item->getPhotoUrl($photos, $index)}}')">{{ __('Reserve')}}</x-primary-button>
+                                    <x-primary-button onclick="gotoReserve({{$item->id}}, '{{$item->title}}', '{{$item->description}}', {{$item->price}}, '{{$item->publishedDate}}', '{{ $item->getPhotoUrl($photos, $index) }}')">{{ __('Reserve')}}</x-primary-button>
 
                                     @endif
                                 </div>
@@ -87,17 +87,19 @@
     const gotoEdit = (id) => {
         window.location.href = `/home-listing/${id}/edit`;
     }
-    const gotoReserve = (id, title, description, price, publishedDate) => {
+    const gotoReserve = (id, title, description, price, publishedDate, photoUrl) => {
         const queryParams = new URLSearchParams({
             id,
             title,
             description,
             price,
-            publishedDate
+            publishedDate,
+            photoUrl: encodeURIComponent(photoUrl)
         });
 
         window.location.href = `/home-listing/${id}/reserve?${queryParams.toString()}`;
-    }
+    };
+
     const gotoAdd = () => {
         window.location.href = `/home-listing/create`;
     }

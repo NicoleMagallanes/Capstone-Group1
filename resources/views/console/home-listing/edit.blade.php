@@ -4,7 +4,7 @@
 
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Manage items') }}
+            {{ __('Edit Home Listing') }}
         </h2>
         <a href="/home-listing">Back to List</a>
     </x-slot>

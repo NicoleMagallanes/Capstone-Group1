@@ -50,6 +50,7 @@ Route::middleware(['auth', 'gatekeeper'])->group(function () {
     Route::post('image/delete', [ImageUploadController::class, 'fileDestroy']);
     Route::resource('/home-listing', HomeListingController::class);
     Route::get('/home-listing/{id}/reserve', [HomeListingController::class, 'reserve'])->name('home-listing.reserve');
+    Route::get('/home-listing/{id}/payment', [HomeListingController::class, 'payment'])->name('home-listing.payment');
 
     Route::get('/options-with-groups', [OptionController::class, 'getOptionWithGroups'])->name('options.with.groups');
 });

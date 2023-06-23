@@ -131,12 +131,24 @@ class HomeListingController extends Controller
         }
         return $filename;
     }
-    public function reserve(HomeListing $homeListing)
+    public function reserve($id)
     {
         $error = [];
+        $homeListing = HomeListing::find($id);
         info($homeListing);
         if ($homeListing->canReserve('home-listing.index')) {
             return view('console/home-listing/reserve', compact('error', 'homeListing'));
+        }
+
+        abort(401);
+    }
+    public function payment($id)
+    {
+        $error = [];
+        $homeListing = HomeListing::find($id);
+        info($homeListing);
+        if ($homeListing->canPay('home-listing.index')) {
+            return view('console/home-listing/payment', compact('error', 'homeListing'));
         }
 
         abort(401);

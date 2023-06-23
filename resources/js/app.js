@@ -1,10 +1,10 @@
 import Alpine from "alpinejs";
 import { Datepicker, Input, initTE } from "tw-elements";
-initTE({ Datepicker, Input, Collapse, Dropdown, Carousel, Modal, Ripple });
+initTE({ Datepicker, Input, Collapse, Dropdown, Carousel, Modal, Ripple, Timepicker, Ripple  });
 window.Alpine = Alpine;
 
 Alpine.start();
-import { Collapse, Dropdown, Carousel, Modal, Ripple } from "tw-elements";
+import { Collapse, Dropdown, Carousel, Modal, Ripple, Timepicker, Ripple } from "tw-elements";
 
 const datepickerDisablePast = document.getElementById(
     "datepicker-disable-past"
